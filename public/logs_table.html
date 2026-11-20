@@ -1,17 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-    <title>ログ一覧</title>
-    <link rel="stylesheet" type="text/css" href="/css/logs_table.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>来場者ログ</title>
+    <link rel="stylesheet" href="/css/logs_table.css">
 </head>
 <body>
-    <table id="logsTable">
-        <tr>
-            <th>出身</th>
-            <th>学年</th>
-            <th>その他</th>
-        </tr>
-    </table>
+    <header class="head">
+        <h1>来場者ログ</h1>
+        <div class="controls">
+            <label for="dateSelect">日付</label>
+            <select id="dateSelect"></select>
+            <span class="live" id="live" title="今日のログはリアルタイムで更新されます">● ライブ</span>
+        </div>
+    </header>
+
+    <section class="stats">
+        <div class="stat"><div class="stat-num" id="total">0</div><div class="stat-label">来場者数</div></div>
+        <div class="card"><h2>学校区分</h2><ul class="bars" id="byClass"></ul></div>
+        <div class="card"><h2>学校所在地</h2><ul class="bars" id="byPlace"></ul></div>
+    </section>
+
+    <section class="card">
+        <h2>一覧 <small>（新しい順）</small></h2>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>#</th><th>学校所在地</th><th>学校区分</th><th>その他</th></tr></thead>
+                <tbody id="logsBody"></tbody>
+            </table>
+        </div>
+        <p class="empty" id="empty" hidden>まだ記録がありません</p>
+    </section>
+
     <script src="/js/logs_table.js"></script>
 </body>
 </html>

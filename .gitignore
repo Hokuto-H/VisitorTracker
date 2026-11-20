@@ -10,3 +10,5 @@ node_modules/
 *.so
 
 public/logs/*.csv
+logs/
+.DS_Store
